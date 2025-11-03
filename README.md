@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechnoBitz E-commerce Website
+
+A simple e-commerce website built with **Next.js**, **TypeScript**, **TailwindCSS**, and **PostgreSQL** using **Prisma** as the ORM.
+
+## Features
+
+- Browse products with images, descriptions, and prices
+- Add items to cart
+- Remove items from cart
+- Responsive design using TailwindCSS
+- Products and cart data stored in PostgreSQL via Prisma
+
+## Technologies Used
+
+- **Frontend:** Next.js, TypeScript, TailwindCSS
+- **Backend / Database:** Prisma ORM, PostgreSQL
+- **State Management:** useState, SWR for fetching cart data
+
+## Project Structure
+
+/public # Static assets (images, icons)
+/prisma # Prisma schema and seed scripts
+/src
+/app # Next.js pages and API routes
+/components # Reusable components like ProductCard
+/lib # Prisma client
+
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- Node.js >= 18
+- PostgreSQL
+- pnpm, npm, or yarn
+
+### Installation
+
+1. Clone the repository:
+
+git clone https://github.com/yourusername/technobitz.git
+cd technobitz
+
+2. Install Dependencies:
+
+npm install
+# or
+yarn
+
+3. Setup environment variables:
+
+DATABASE_URL="postgresql://postgres:<YOUR_PASSWORD>@localhost:5432/technobitz_db?schema=public"
+
+4. Setup the database:
+
+npx prisma migrate dev --name init
+npx prisma generate
+npx ts-node prisma/seed.ts
+
+5. Run the development server:
+
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Navigate to /products to view available products.
 
-## Learn More
+2. Click Add to Cart to add items.
 
-To learn more about Next.js, take a look at the following resources:
+3. Go to /cart to see your cart contents and remove items.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository.
 
-## Deploy on Vercel
+2. Create a new branch: git checkout -b feature/your-feature
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Make your changes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Commit your changes: git commit -m "Add your message"
+
+5. Push to the branch: git push origin feature/your-feature
+
+6. Open a Pull Request.
+
+![Home Page](<technobitz (2).png>) ![Cart](<technobitz (3).png>) ![Products](<technobitz (1).png>)

@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          Int         @id @default(autoincrement())
+  name        String
+  category    String
+  price       Float
+  description String?
+  imageUrl       String?
+  createdAt   DateTime    @default(now())
+
+  // 👇 back-reference to CartItem
+  cartItems   CartItem[]
+}
+
+model CartItem {
+  id         Int       @id @default(autoincrement())
+  productId  Int
+  quantity   Int       @default(1)
+  createdAt  DateTime  @default(now())
+
+  // 👇 relation to Product
+  product    Product   @relation(fields: [productId], references: [id])
+}
