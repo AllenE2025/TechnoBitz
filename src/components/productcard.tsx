@@ -1,5 +1,7 @@
 "use client";
 
+import { Image } from "next/image";
+
 type Product = {
   id: number;
   name: string;
@@ -11,7 +13,7 @@ type Product = {
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-md hover:shadow-purple-500/30 transition transform hover:-translate-y-1 p-5 flex flex-col text-white">
-      <img
+      <Image
         src={product.image || "/placeholder.png"}
         alt={product.name}
         className="rounded-lg w-full h-48 object-cover mb-4"
