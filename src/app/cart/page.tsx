@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import {Image} from "next/image";
 
 type CartItem = {
   id: number;
@@ -71,7 +72,7 @@ export default function CartPage() {
               >
                 <div className="flex items-center gap-4">
                   {item.product.imageUrl && (
-                    <img
+                    <Image
                       src={item.product.imageUrl}
                       alt={item.product.name}
                       className="w-24 h-24 object-cover rounded-lg"
