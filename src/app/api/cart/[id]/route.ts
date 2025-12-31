@@ -5,7 +5,7 @@ interface Params {
   params: { id: string };
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string }) {
+export async function DELETE(req: Request, { params }: { params: { id: string }}) {
   const id = parseInt(params.id);
 
   // Delete the cart item by its unique CartItem id
